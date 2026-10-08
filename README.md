@@ -1,73 +1,49 @@
-# Intelligent Pothole Detection 
-Intelligent Pothole detection using imaging and computer vision.
+# Intelligent Pothole Detection — Computer Vision Exploration
 
-## Problem Statement
-Bowl-shaped holes of various sizes in the pavement surface. Minimum plan dimension is 150 mm. Circular potholes should have a minimum diameter of 150 mm. A 150-mmdiameter circle should fit inside irregular-shaped potholes.
+An early-stage project exploring how road-surface images might be used to identify potholes through computer vision and image processing.
 
+> **Repository status:** This is an exploratory educational/research repository, **not** a runnable, validated pothole detector. The repository does not currently provide a trained model, a working inference pipeline, benchmark results, or reproducible performance claims.
 
-### Literature Review
-#### Generic
-1. https://rosap.ntl.bts.gov/view/dot/28612
-2. https://www.hindawi.com/journals/mpe/2015/968361/
+## Motivation
 
-#### 2D image-based approach
-1. https://repository.up.ac.za/bitstream/handle/2263/57733/Nienaber_Detecting_2015.pdf?sequence=1
-2. http://www.icter.org/conference/icter2016/sites/default/files/icter/IITC-2008p1.pdf
-3. https://pdfs.semanticscholar.org/f28c/b61a43f16bde57072819b107e0051c6c0afc.pdf
-4. http://www.wseas.us/e-library/conferences/2013/Antalya/ITCN/ITCN-05.pdf
-5. http://www.ijetsr.com/images/short_pdf/1491839718_dmce906_venue_ijetsr.pdf
-6. http://cisjournal.org/journalofcomputing/archive/vol8no1/vol8no1_5.pdf 
+Road-surface inspection is a real-world perception problem. Images can contain shadows, uneven lighting, road markings, surface texture, and perspective distortion that complicate discrimination between damaged and undamaged pavement.
 
-#### Vibration-based method
-1. https://medium.com/@percepsense/intelligent-pothole-detection-879ef635dd38
-2. https://github.com/marty-Wallace/Pothole
+This repository records early ideas for approaching that problem with images. It is useful as evidence of interest in computer vision, but it should not be confused with a completed robotics platform or a deployed monitoring system.
 
-## Solution Approach
+## Repository contents
 
-### Approach
-##### Define the Technical Problem
-1. Samples Collection
-http://www.image-net.org/synset?wnid=n09398076
-2. Image Preprocessing
-3. Visualization
-4. Feature Selection
-   - Color Model
-   - Contour Detection
-   - Shape Detection
+| Path | What it actually contains |
+| --- | --- |
+| [`examples/readme.md`](examples/readme.md) | Links to illustrative external images and an initial list of candidate signals such as texture, color, and geometry |
+| [`jupyternotebook/ml-pot-hole-detection.ipynb`](jupyternotebook/ml-pot-hole-detection.ipynb) | A short textual outline of preprocessing, training, and prediction ideas; **not** an executable Jupyter notebook |
+| [`README.md`](README.md) | Scope, limitations, exploratory workflow, and research context |
 
-- Contour drawing
-- Perspective (Not included)
-- Grayscale
-- Color Tone
+No training dataset, model weights, application source code, or results are included in this repository at present.
 
-#### Training
-1. Training Data Preparation
-2. Algorithm Selection
-3. Reporting on Accuracy and Efficiency
+## Conceptual computer-vision workflow
 
-#### Prediction
-1. Image Preprocessing
-2. Image Classification
+The following is a **proposed** pipeline, not a claim that each step has been implemented here:
 
+1. **Collect and label images:** Build a dataset that includes potholes, undamaged surfaces, and challenging negative examples. Record collection conditions and the labeling process.
+2. **Preprocess:** Resize and normalize images. Evaluate how lighting, shadows, blur, and changing camera angles affect image quality.
+3. **Select a baseline:** Compare a basic image-processing or classification approach with an object-detection baseline where bounding-box annotations are available.
+4. **Evaluate on held-out data:** Report precision, recall, false positives, and detection latency. Avoid evaluating only on images from the same route or capture session as training.
+5. **Consider deployment constraints:** Investigate inference time, sensor placement, resource requirements, and how to record a detection with location and timestamp metadata.
 
-### Imapge Processing Libraries
-* http://scikit-image.org/
-* https://opencv.org/
+## Published research
 
-http://blog.mmast.net/python-image-processing-libraries-performance-opencv-scipy-scikit-image
+Related academic publication: **Pothole Detection Using Machine Learning Models** (2024), [DOI: 10.32628/IJSRSET241126](https://doi.org/10.32628/IJSRSET241126).
 
-### Technical Design
-<img src="https://www.hindawi.com/journals/mpe/2015/968361/fig3?sanitize=true">
+The publication and this repository are **separate artifacts**. Do not assume that the repository contains the paper's model implementations, data, experiments, or exact evaluation pipeline.
 
+## Reproducing results
 
-### How to Run?
+There are currently **no reproducible experiments** in this repository. The file with an `.ipynb` extension is a planning outline, not a valid executable notebook; no installation or run command is provided.
 
-### Performance Data
+A future implementation should add a licensed sample dataset or instructions for acquiring one, a pinned dependency environment, verified scripts/notebooks, expected outputs, evaluation methodology, and attribution for external assets.
 
-### Further Improvements
+## Attribution and boundaries
 
-### Applications
+Some illustrative image links in `examples/readme.md` refer to third-party websites. The images are **not** redistributed here and should not be assumed to have licenses permitting reuse in a dataset or model training.
 
-
-
-
+This repository makes no claim of autonomous navigation, real-time robotic operation, or production deployment. For further details about the published study, follow the publication link above.
