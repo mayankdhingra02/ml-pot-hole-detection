@@ -1,22 +1,28 @@
+# Road-image examples and potential inputs
 
-We would see examples of good/bad road. On bad road specifically we would encounter potholes.
+This folder originally collected links to illustrative photographs of potholes and notes about candidate image features. It does **not** contain a labeled dataset or an executable detector.
 
-# Example Images
+## Example-image sources
 
-## Potholes
-<img src="http://www.valeofglamorgan.gov.uk/Images/Vehicles%20and%20roads/Pothole.jpg" width="300">
-<img src="https://www.ncdot.gov/contact/report/pothole/images/pothole.jpg" width="300">
-<img src="https://cbsboston.files.wordpress.com/2018/01/pothole.jpg" width="300">
-<img src="https://www.telegraph.co.uk/content/dam/cars/2016/03/24/070213tyr_trans_NvBQzQNjv4BqZgEkZX3M936N5BQK4Va8Rd1_LE3c4DIRmB2hHE4OOWU.jpg" width="300">
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Pothole.jpg/640px-Pothole.jpg" width="300">
+The historical references below point to images on **external websites**. Availability and licensing have not been verified. Please view them at their sources and do not assume they may be downloaded, redistributed, or used for model training without permission.
 
-# Features
-  * Images
-    * Dimension
-    * Size
-    * Color
-    * Color Distribution
-    * Pattern
-  * Videos
-  * Geolocation 
+- [Vale of Glamorgan pothole example](http://www.valeofglamorgan.gov.uk/Images/Vehicles%20and%20roads/Pothole.jpg)
+- [North Carolina DOT pothole example](https://www.ncdot.gov/contact/report/pothole/images/pothole.jpg)
+- [Wikimedia Commons pothole example](https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Pothole.jpg/640px-Pothole.jpg) — check the individual Commons file page for the applicable license and attribution.
+- Older references also included news-site images; these have been removed from embedded previews to avoid presenting them as reusable dataset assets.
 
+## Potential input signals (not validated features)
+
+For images: surface color and texture, gradients, boundaries/contours, shape, camera perspective, road markings, shadow and lighting conditions.
+
+For a future mobile or robotic sensing system: video temporal continuity, capture timestamps, camera calibration, and location metadata.
+
+## What a future sample dataset would require
+
+1. **Provenance and permissions:** Document where each image came from and the rights to reuse it.
+2. **Labels:** Distinguish potholes, normal roadway, patches, shadows, and confusing negative examples.
+3. **Train/validation/test separation:** Split by route, capture session, or physical location where possible to reduce leakage.
+4. **Evaluation:** Report precision/recall, false alarms, localization quality (if relevant), and latency.
+5. **Reproducibility:** Pin versions, provide a limited licensed sample and scripts, and document any unavailable data.
+
+**Current status:** These are exploratory notes; no model training or inference is implemented in this folder.
